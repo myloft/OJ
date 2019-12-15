@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>排名</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav id="nav_master" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/"><img src="/static/images/logo.png" alt="" style="display: none;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-content">
+
+            <ul class="nav navbar-nav">
+                <li><a href="/question" style="font-size: 30px">OnlineJudge</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">题目库&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/question">题目列表</a></li>
+<!--                        <li><a href="/lanmao/judges">评测历史</a></li>-->
+                    </ul>
+                </li>
+                <li class="dropdown" style="display: none">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">帮助中心&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://discuz.bnuzoj.com/wejudge/connect.php" target="_blank">讨论板</a></li>
+                        <li><a href="/helper/index">帮助文档</a></li>
+                        <li><a href="/helper/student">学生使用向导</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/helper/formatter">C/C++代码格式化工具</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="/images/logo.png" style="border: 1px solid #333; border-radius: 50%;" width="18" height="18">
+                        heyifeng<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/lanmao/skill">个人主页</a></li>
+
+                        <li><a href="/account/guest/space/#avatar" style="display: none">上传头像</a></li>
+                        <li><a href="/lanmao/userSetting" style="display: none">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h2>排名</h2>
+<table class="table table-striped">
+    <thead>
+    <tr class="reactable-column-header">
+        <th>姓名</th>
+        <th>时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="grade : ${grade}">
+        <td th:text="${grade.user}">
+        <td th:text="${grade.time}">
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
